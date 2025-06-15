@@ -2,7 +2,11 @@
 builder = "nixpacks"
 
 [phases.setup]
-nixPkgs = ["python311", "python311Packages.flask", "python311Packages.flask-cors"]
+nixPkgs = [
+  "python311",
+  "python311Packages.flask",
+  "python311Packages.flask-cors"
+]
 
 [start]
 cmd = "python3 server/server.py"
