@@ -1,9 +1,10 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import util
+import os
 
 app = Flask(__name__)
-CORS(app)  # Enables CORS for all routes
+CORS(app)
 
 @app.route('/get_location_names', methods=['GET'])
 def get_location_names():
@@ -27,4 +28,5 @@ def predict_home_price():
 
 if __name__ == '__main__':
     print("Flask server starting for home price prediction...")
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host='0.0.0.0', port=port)
