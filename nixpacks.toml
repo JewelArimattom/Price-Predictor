@@ -1,10 +1,8 @@
-[phases.setup]
-nixPkgs = ["python311", "python311Packages.pip"]
+[build]
+builder = "nixpacks"
 
-[phases.install]
-cmds = [
-  "pip install -r server/requirements.txt"
-]
+[phases.setup]
+nixPkgs = ["python311", "python311Packages.flask", "python311Packages.flask_cors"]
 
 [start]
-cmd = "python server/server.py"
+cmd = "python3 server/server.py"
